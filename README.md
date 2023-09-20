@@ -1,6 +1,6 @@
 # 中文
 ## 说明
-- 此仓库存放特定脚本, 用于解决 Element for Android:
+- 此仓库存放特定脚本, 用于解决 [Element for Android](https://github.com/vector-im/element-android):
   - 在后台期间无法自动挂断来电;
   - 在后台期间无法自动处理未接来电;
   - 在后台期间通话结束被叫方挂断后, 主叫卡在 "正在建立连接" 一段时间后提示 "无法建立实时连接";
@@ -48,3 +48,30 @@
 
 `Element_未接来电超时自动返回_#2.macro`
 1. **脚本具有读取屏幕内容的能力, 目前只能匹配简体中文**;
+
+
+
+
+# English
+# The script has not been adapted for languages other than Simplified Chinese. When Element for Android is set to other languages, unexpected problems will occur when executing the script.
+
+## Description
+- This repository stores specific scripts to solve certain problems with [Element for Android](https://github.com/vector-im/element-android):
+   - Unable to automatically hang up calls while in the background;
+   - Unable to automatically handle missed calls while in the background;
+   - During the background period, after the call ends and the called party hangs up, the caller is stuck on "Establishing Connection" and prompts "Unable to establish real-time connection" after a period of time;
+   - While in the foreground, the caller is stuck in "Remote Unable to Answer" and cannot return automatically;
+   - Due to the above phenomenon, the screen is always on and the battery is drained.
+
+## Permissions and Battery
+- Depending on the purpose of the script, the user needs to grant the following permissions to MacroDroid:
+   - Accessibility - MacroDroid (required)
+   - Accessibility - MacroDroid interface interaction (required)
+   - **Root permissions (may be required, depending on your system)**
+   - Notification access (optional)
+   - android.permission.READ_LOGS (optional)
+- Script scope:
+   - Package name: `im.vector.app`
+- Battery related:
+   - Allow MacroDroid to run in the background
+   - Disable battery optimization for MacroDroid
