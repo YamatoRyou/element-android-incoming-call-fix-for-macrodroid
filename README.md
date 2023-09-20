@@ -53,7 +53,7 @@
 
 
 # English
-# The script has not been adapted for languages other than Simplified Chinese. When Element for Android is set to other languages, unexpected problems will occur when executing the script.
+# This script has not been adapted for languages other than Simplified Chinese. When Element is set to a language other than Simplified Chinese, this script will not take effect. Please modify it according to the language you are currently using before using it.
 
 ## Description
 - This repository stores specific scripts to solve certain problems with [Element for Android](https://github.com/vector-im/element-android):
