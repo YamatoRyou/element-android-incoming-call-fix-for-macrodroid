@@ -49,6 +49,8 @@
 `Element_未接来电超时自动返回_#2.macro`
 1. **脚本具有读取屏幕内容的能力, 目前只能匹配简体中文**;
 
+## 隐私
+虽然此脚本具有读取屏幕内容的能力, 但并不会将屏幕上的内容发送给作者. 脚本内容已公开.
 
 
 
@@ -75,3 +77,7 @@
 - Battery related:
    - Allow MacroDroid to run in the background
    - Disable battery optimization for MacroDroid
+
+## privacy
+Although this script has the ability to read the contents of the screen, it does not send the contents of the screen to the author. The contents of the script are public.
+
