@@ -36,12 +36,13 @@
    - 共 2 个脚本, 每个脚本都需要执行一次上述步骤
 4. 回到主页, 点击 "变量", 检查是否存在名为 "element_incoming_call_is_triggered" 的变量, 如果没有, 则手动新建一个, 类型为 "布尔";
    - 如果有则忽略本步骤
+5. 锁定手机, 然后使用 Element 呼叫该手机以测试脚本, 如果来电后被迅速挂断, 则修改循环体中第 2 个动作 (Shell 脚本), 为其允许 Root 权限
 
 ## 注意事项
 `Element_未接来电超时自动返回_#1.macro`
 1. **脚本具有读取屏幕内容的能力, 目前只能匹配简体中文**;
 2. 脚本使用了以下 Shell 命令用于确定当前 Activity, **但是在某些系统, 执行此命令需要 Root 权限**:  
-   `dumpsys activity top | grep ACTIVITY | tail -1`
+   `dumpsys activity top | grep ACTIVITY | tail -1 | cut -d " " -f 4`
 3. 在某些情况下, 脚本可能无法及时终止:
    当 "来电 -> 拒接" 频繁反复出现时, 脚本计时器可能并不会重新开始而是接续上一次循环
 4. Element for Android 的中文翻译并不规范, 未来可能会随版本更新而更换关键词导致脚本失效.
