@@ -9,11 +9,9 @@
 
 ## 权限与电池
 - 根据脚本的用途, 用户需要为 MacroDroid 赋予下列权限:
-  - 无障碍 - MacroDroid (必需)
-  - 无障碍 - MacroDroid 界面交互 (必需)
+  - 无障碍 - MacroDroid 界面交互 (当启用基于屏幕内容的触发器为必需)
   - **Root 权限 (可能必需, 取决于你的系统)**
-  - 通知访问权 (非必需)
-  - android.permission.READ_LOGS (非必需)
+  - android.permission.READ_LOGS (当启用基于系统日志的触发器为必需)
 - 脚本作用域: 
   - 包名: `im.vector.app`
 - 电池相关:
@@ -56,7 +54,7 @@
 虽然此脚本具有读取屏幕内容的能力, 但并不会将屏幕上的内容发送给作者. 脚本内容已公开.
 
 
-
+---
 # English
 # This script has not been adapted for languages other than Simplified Chinese. When Element is set to a language other than Simplified Chinese, this script will not take effect. Please modify it according to the language you are currently using before using it.
 
@@ -70,11 +68,9 @@
 
 ## Permissions and Battery
 - Depending on the purpose of the script, the user needs to grant the following permissions to MacroDroid:
-   - Accessibility - MacroDroid (required)
-   - Accessibility - MacroDroid interface interaction (required)
+   - Accessibility - MacroDroid interface interaction (required when enabling screen content-based triggers)
    - **Root permissions (may be required, depending on your system)**
-   - Notification access (optional)
-   - android.permission.READ_LOGS (optional)
+   - android.permission.READ_LOGS (required when enabling system log based triggers)
 - Script scope:
    - Package name: `im.vector.app`
 - Battery related:
