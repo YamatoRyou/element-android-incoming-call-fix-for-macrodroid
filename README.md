@@ -12,6 +12,7 @@
   - 无障碍 - MacroDroid 界面交互 (当启用基于屏幕内容的触发器为必需)
   - **Root 权限 (可能必需, 取决于你的系统)**
   - android.permission.READ_LOGS (当启用基于系统日志的触发器为必需)
+  - 允许叠加层 (当在来电界面上显示调试信息时为必需)
 - 脚本作用域: 
   - 包名: `im.vector.app`
 - 电池相关:
@@ -72,6 +73,7 @@
    - Accessibility - MacroDroid interface interaction (required when enabling screen content-based triggers)
    - **Root permissions (may be required, depending on your system)**
    - android.permission.READ_LOGS (required when enabling system log based triggers)
+   - Allow overlays (required when displaying debug information on the incoming call screen)
 - Script scope:
    - Package name: `im.vector.app`
 - Battery related:
