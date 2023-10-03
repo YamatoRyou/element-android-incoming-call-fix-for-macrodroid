@@ -10,7 +10,7 @@
 ## 权限与电池
 - 根据脚本的用途, 用户需要为 MacroDroid 赋予下列权限:
   - 无障碍 - MacroDroid 界面交互 (当启用基于屏幕内容的触发器为必需)
-  - **Root 权限 (可能必需, 取决于你的系统)**
+  - **Root 权限 (当执行特定的 Shell命令时可能必需, 取决于你的系统)**
   - android.permission.READ_LOGS (当启用基于系统日志的触发器为必需)
   - 允许叠加层 (当在来电界面上显示调试信息时为必需)
 - 脚本作用域: 
@@ -22,8 +22,9 @@
 ## 脚本效果
 - 适用于语音通话与视频通话
 - 当检测到来电画面时脚本自动开始
-- 位于前台 (来电超时后弹出 "远端未能接听"): 在来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到锁屏画面
-- 位于后台 (来电超时后未弹出 "远端未能接听"): 在来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("挂断" 按钮) 而挂断来电并返回到锁屏画面
+- 位于前台并且处于锁屏状态下 (来电超时后弹出 "远端未能接听"): 在来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到锁屏画面
+- 位于前台并且处于使用其它应用状态下 (来电超时后弹出 "远端未能接听"): 在来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到上一个画面
+- 位于后台并且处于锁屏状态下 (来电超时后未弹出 "远端未能接听"): 在来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("挂断" 按钮) 而挂断来电并返回到锁屏画面
 - 脚本运行期间会生成一个半透明的浮动层用于显示实时调试信息
 - 超时前手动接听来电或切换到其它应用则自动终止脚本
 
@@ -71,7 +72,7 @@
 ## Permissions and Battery
 - Depending on the purpose of the script, the user needs to grant the following permissions to MacroDroid:
    - Accessibility - MacroDroid interface interaction (required when enabling screen content-based triggers)
-   - **Root permissions (may be required, depending on your system)**
+   - **Root permission (may be required when executing certain shell commands, depending on your system)**
    - android.permission.READ_LOGS (required when enabling system log based triggers)
    - Allow overlays (required when displaying debug information on the incoming call screen)
 - Script scope:
