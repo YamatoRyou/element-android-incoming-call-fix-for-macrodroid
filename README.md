@@ -10,7 +10,8 @@
 ## 权限与电池
 - 根据脚本的用途, 用户需要为 MacroDroid 赋予下列权限:
   - 无障碍 - MacroDroid 界面交互 (当启用基于屏幕内容的触发器为必需)
-  - **Root 权限 (当执行特定的 Shell 命令时在某些系统上为必需, 需要自测)**
+  - android.permission.DUMP (执行特定命令时必需)
+  - android.permission.PACKAGE_USAGE_STATS (执行特定命令时必需)
   - android.permission.READ_LOGS (当启用基于系统日志的触发器为必需)
   - 允许叠加层 (当在来电界面上显示调试信息时为必需)
 - 脚本作用域: 
@@ -35,7 +36,18 @@
   | 位于前台 | 锁屏 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到锁屏画面 |
   | 位于后台 | 锁屏 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("挂断" 按钮) 而挂断来电并返回到锁屏画面 |
 - 脚本运行期间会生成一个半透明的浮动层用于显示实时调试信息
-- 超时前手动接听; 超时或切换到其它应用则自动终止脚本, 浮动层消失
+- 超时前手动接听
+- 通话计时开始时振动
+- 超时或切换到其它应用则自动终止脚本, 浮动层消失
+
+## 通过 ADB 授予部分特殊权限
+手机在启用开发者选项后连接到电脑, 在终端或命令提示符执行以下命令:
+```
+adb shell
+pm grant com.arlosoft.macrodroid android.permission.READ_LOGS
+pm grant com.arlosoft.macrodroid android.permission.DUMP
+appops set com.arlosoft.macrodroid android:get_usage_stats allow
+```
 
 ## 使用方法
 - 请先安装 MacroDroid, 版本至少 5.28;
@@ -47,12 +59,12 @@
    - 共 2 个脚本, 每个脚本都需要执行一次上述步骤
 4. 回到主页, 点击 "变量", 检查是否存在名为 "element_incoming_call_is_triggered" 的变量, 如果没有, 则手动新建一个, 类型为 "布尔";
    - 如果有则忽略本步骤
-5. 锁定手机, 然后使用 Element 呼叫该手机以测试脚本, 如果来电后被迅速挂断, 则修改循环体中第 2 个动作 (Shell 脚本), 为其允许 Root 权限
+5. 锁定手机, 然后使用 Element 呼叫该手机以测试脚本, 如果来电后被迅速挂断, 则需要授予特殊权限
 
 ## 注意事项
 `Element_未接来电超时自动返回_#1.macro`
 1. **脚本具有读取屏幕内容的能力, 目前只能匹配简体中文**;
-2. 脚本使用了以下 Shell 命令用于确定当前 Activity, **但是在某些系统, 执行此命令需要 Root 权限**:  
+2. 脚本使用了以下 Shell 命令用于确定当前 Activity, **需要授予特殊权限**:  
    `dumpsys activity top | grep ACTIVITY | tail -1 | cut -d " " -f 4`
 3. 在某些情况下, 脚本可能无法及时终止:
    当 "来电 -> 拒接" 频繁反复出现时, 脚本计时器可能并不会重新开始而是接续上一次循环
