@@ -1,4 +1,3 @@
-# 中文
 ## 说明
 - 此仓库存放特定脚本, 用于解决 [Element for Android](https://github.com/vector-im/element-android):
   - 在后台期间无法自动挂断来电;
@@ -76,33 +75,3 @@ appops set com.arlosoft.macrodroid android:get_usage_stats allow
 
 ## 隐私
 虽然此脚本具有读取屏幕内容的能力, 但并不会将屏幕上的内容发送给作者. 脚本内容已公开.
-
-
----
-# English
-# This script has not been adapted for languages other than Simplified Chinese. When Element is set to a language other than Simplified Chinese, this script will not take effect. Please modify it according to the language you are currently using before using it.
-
-## Description
-- This repository stores specific scripts to solve certain problems with [Element for Android](https://github.com/vector-im/element-android):
-   - Unable to automatically hang up calls while in the background;
-   - Unable to automatically handle missed calls while in the background;
-   - During the background period, after the call ends and the called party hangs up, the caller is stuck on "Establishing Connection" and prompts "Unable to establish real-time connection" after a period of time;
-   - While in the foreground, the caller is stuck in "Remote Unable to Answer" and cannot return automatically;
-   - Due to the above phenomenon, the screen is always on and the battery is drained.
-
-## Permissions and Battery
-- Depending on the purpose of the script, the user needs to grant the following permissions to MacroDroid:
-   - Accessibility - MacroDroid interface interaction (required when enabling screen content-based triggers)
-   - **Root permission (may be required when executing certain shell commands, depending on your system)**
-   - android.permission.READ_LOGS (required when enabling system log based triggers)
-   - Allow overlays (required when displaying debug information on the incoming call screen)
-- Script scope:
-   - Package name: `im.vector.app`
-- Battery related:
-   - Allow MacroDroid to run in the background
-   - Disable battery optimization for MacroDroid
-   - Allows auto-start and auto-wake up
-
-## privacy
-Although this script has the ability to read the contents of the screen, it does not send the contents of the screen to the author. The contents of the script are public.
-
