@@ -31,22 +31,22 @@
 - Element 分别在不同的场合下的处理策略:  
   | 应用状态 | 屏幕状态 | 效果 |
   | ----- | ----- | ----- |
-  | 位于前台 | 显示其它应用 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到上一个画面 |
-  | 位于前台 | 锁屏 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到锁屏画面 |
-  | 位于后台 | 锁屏 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("挂断" 按钮) 而挂断来电并返回到锁屏画面 |
+  | 位于前台 | 从其它应用自动切换到来电画面 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到上一个画面 |
+  | 位于前台 | 从锁屏用自动切换到来电画面 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到锁屏画面 |
+  | 位于后台 | 从锁屏用自动切换到来电画面 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("挂断" 按钮) 而挂断来电并返回到锁屏画面 |
 - 脚本运行期间会生成一个半透明的浮动层用于显示实时调试信息
 - 超时前手动接听
 - 通话计时开始时振动
 - 超时或切换到其它应用则自动终止脚本, 浮动层消失
 
 ## 通过 ADB 授予部分特殊权限
-手机在启用开发者选项后连接到电脑, 在终端或命令提示符执行以下命令:
-```
-adb shell
-pm grant com.arlosoft.macrodroid android.permission.READ_LOGS
-pm grant com.arlosoft.macrodroid android.permission.DUMP
-appops set com.arlosoft.macrodroid android:get_usage_stats allow
-```
+手机在启用开发者选项后连接到电脑, 在终端或命令提示符执行以下命令:  
+`adb shell`  
+如果启用基于系统日志的触发器, 执行以下命令:  
+`pm grant com.arlosoft.macrodroid android.permission.READ_LOGS`  
+如果启用基于屏幕内容的触发器, 执行以下命令:  
+`pm grant com.arlosoft.macrodroid android.permission.DUMP`  
+`appops set com.arlosoft.macrodroid android:get_usage_stats allow`  
 
 ## 使用方法
 - 请先安装 MacroDroid, 版本至少 5.28;
@@ -59,6 +59,14 @@ appops set com.arlosoft.macrodroid android:get_usage_stats allow
 4. 回到主页, 点击 "变量", 检查是否存在名为 "element_incoming_call_is_triggered" 的变量, 如果没有, 则手动新建一个, 类型为 "布尔";
    - 如果有则忽略本步骤
 5. 锁定手机, 然后使用 Element 呼叫该手机以测试脚本, 如果来电后被迅速挂断, 则需要授予特殊权限
+
+
+
+
+
+
+
+
 
 ## 注意事项
 `Element_未接来电超时自动返回_#1.macro`
