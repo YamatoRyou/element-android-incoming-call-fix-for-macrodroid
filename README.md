@@ -8,9 +8,9 @@
 
 ## 权限与电池
 - 根据脚本的用途, 用户需要为 MacroDroid 赋予下列权限:
-  - 无障碍 - MacroDroid 界面交互 (当启用基于屏幕内容的触发器为必需)
-  - android.permission.DUMP (执行特定命令时必需)
-  - android.permission.PACKAGE_USAGE_STATS (执行特定命令时必需)
+  - 无障碍 - MacroDroid 界面交互 (涉及到自动点击, 必需)
+  - android.permission.DUMP (执行特定 Shell 命令时必需)
+  - android.permission.PACKAGE_USAGE_STATS (执行特定 Shell 命令时必需)
   - android.permission.READ_LOGS (当启用基于系统日志的触发器为必需)
   - 允许叠加层 (当在来电界面上显示调试信息时为必需)
 - 脚本作用域: 
@@ -59,14 +59,6 @@
 4. 回到主页, 点击 "变量", 检查是否存在名为 "element_incoming_call_is_triggered" 的变量, 如果没有, 则手动新建一个, 类型为 "布尔";
    - 如果有则忽略本步骤
 5. 锁定手机, 然后使用 Element 呼叫该手机以测试脚本, 如果来电后被迅速挂断, 则需要授予特殊权限
-
-
-
-
-
-
-
-
 
 ## 注意事项
 `Element_未接来电超时自动返回_#1.macro`
