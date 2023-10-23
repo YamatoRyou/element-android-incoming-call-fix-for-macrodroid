@@ -41,12 +41,15 @@
 
 ## 通过 ADB 授予部分特殊权限
 手机启用开发者选项及 USB 调试后连接到电脑, 在终端或命令提示符执行以下命令:  
-`adb shell`  
-如果启用基于系统日志的触发器, 执行以下命令:  
-`pm grant com.arlosoft.macrodroid android.permission.READ_LOGS`  
-如果启用基于屏幕内容的触发器, 执行以下命令:  
-`pm grant com.arlosoft.macrodroid android.permission.DUMP`  
-`appops set com.arlosoft.macrodroid android:get_usage_stats allow`  
+```
+adb shell
+pm grant com.arlosoft.macrodroid android.permission.DUMP
+appops set com.arlosoft.macrodroid android:get_usage_stats allow
+```
+如果启用基于系统日志的触发器, 额外执行以下命令:  
+```
+pm grant com.arlosoft.macrodroid android.permission.READ_LOGS
+```  
 
 ## 使用方法
 - 请先安装 MacroDroid, 版本至少 5.28;
