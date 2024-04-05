@@ -44,6 +44,7 @@
 ```
 adb shell
 pm grant com.arlosoft.macrodroid android.permission.DUMP
+pm grant com.arlosoft.macrodroid android.permission.PACKAGE_USAGE_STATS
 appops set com.arlosoft.macrodroid android:get_usage_stats allow
 ```
 如果启用基于系统日志的触发器, 额外执行以下命令:  
