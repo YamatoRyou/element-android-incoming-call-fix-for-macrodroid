@@ -11,6 +11,7 @@
   - 无障碍 - MacroDroid 界面交互 (涉及到自动点击, 必需)
   - android.permission.DUMP (执行特定 Shell 命令时必需)
   - android.permission.PACKAGE_USAGE_STATS (执行特定 Shell 命令时必需)
+  - android:get_usage_stats (AppOps 权限, 执行特定 Shell 命令时必需)
   - android.permission.READ_LOGS (当启用基于系统日志的触发器为必需)
   - 允许叠加层 (当在来电界面上显示调试信息时为必需)
 - 脚本作用域: 
@@ -52,9 +53,6 @@ appops set com.arlosoft.macrodroid android:get_usage_stats allow
 pm grant com.arlosoft.macrodroid android.permission.READ_LOGS
 ```  
 **Android 13 及更高版本不推荐使用, 因为该权限被 Google 限制为一次性权限, 随触发器启用并于手机下次重启后失效, 并且无法通过 ADB 完成授权, 必须随启用触发器后在屏幕上手动授权. 如果你的手机安装了 LSPosed, 可以额外安装 [DisableLogRequest](https://modules.lsposed.org/module/com.queallytech.disablelogrequest/) 尝试解决此问题.**
-
-
-
 
 ## 使用方法
 - 请先安装 MacroDroid, 版本至少 5.28;
