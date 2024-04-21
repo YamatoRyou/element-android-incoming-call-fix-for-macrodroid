@@ -51,6 +51,7 @@ appops set com.arlosoft.macrodroid android:get_usage_stats allow
 ```
 pm grant com.arlosoft.macrodroid android.permission.READ_LOGS
 ```  
+**Android 13 及更高版本不推荐使用, 该权限随触发器启用一次后失效 (系统只允许应用读取一次系统日志), 并且无法通过 ADB 完成授权, 必须随启用触发器后在手机上操作.**
 
 ## 使用方法
 - 请先安装 MacroDroid, 版本至少 5.28;
