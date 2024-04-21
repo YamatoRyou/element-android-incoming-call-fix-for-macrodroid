@@ -51,7 +51,10 @@ appops set com.arlosoft.macrodroid android:get_usage_stats allow
 ```
 pm grant com.arlosoft.macrodroid android.permission.READ_LOGS
 ```  
-**Android 13 及更高版本不推荐使用, 因为该权限被 Google 限制为一次性权限, 随触发器启用并于手机重启后失效, 并且无法通过 ADB 完成授权, 必须随启用触发器后在屏幕上手动授权.**
+**Android 13 及更高版本不推荐使用, 因为该权限被 Google 限制为一次性权限, 随触发器启用并于手机下次重启后失效, 并且无法通过 ADB 完成授权, 必须随启用触发器后在屏幕上手动授权. 如果你的手机安装了 LSPosed, 可以额外安装 [DisableLogRequest](https://modules.lsposed.org/module/com.queallytech.disablelogrequest/) 尝试解决此问题.**
+
+
+
 
 ## 使用方法
 - 请先安装 MacroDroid, 版本至少 5.28;
