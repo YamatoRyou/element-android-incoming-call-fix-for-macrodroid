@@ -32,7 +32,7 @@
 - Element 分别在不同的场合下的处理策略:  
   | 应用状态 | 屏幕状态 | 效果 |
   | ----- | ----- | ----- |
-  | 位于前台 | 从其它应用自动切换到来电画面 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到上一个画面 |
+  | 位于前台 | 从其它应用自动切换到来电画面 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到上一个画面 (取决于应用内部实现, 也有可能会打开 Element) |
   | 位于前台 | 从锁屏自动切换到来电画面 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("确认" 按钮) 而挂断来电并返回到锁屏画面 |
   | 位于后台 | 从锁屏自动切换到来电画面 | 来电画面显示至少 1 分钟 (或稍长于 1 分钟) 后, 脚本自动点击屏幕上的特定元素 ("挂断" 按钮) 而挂断来电并返回到锁屏画面 |
 - 脚本运行期间会生成一个半透明的浮动层用于显示实时调试信息
@@ -52,7 +52,7 @@ appops set com.arlosoft.macrodroid android:get_usage_stats allow
 ```
 pm grant com.arlosoft.macrodroid android.permission.READ_LOGS
 ```  
-**Android 13 及更高版本不推荐使用, 因为该权限被 Google 限制为一次性权限, 随触发器启用并于手机下次重启后失效, 并且无法通过 ADB 完成授权, 必须随启用触发器后在屏幕上手动授权. 如果你的手机安装了 LSPosed, 可以额外安装 [DisableLogRequest](https://modules.lsposed.org/module/com.queallytech.disablelogrequest/) 尝试解决此问题.**
+**Android 13 及更高版本不推荐使用, 因为该权限被 Google 限制为一次性权限, 随触发器启用并于手机下次重启后失效, 并且必须随启用触发器后在屏幕上手动授权而非 ADB. 如果你的手机安装了 LSPosed, 可以额外安装 [DisableLogRequest](https://modules.lsposed.org/module/com.queallytech.disablelogrequest/) 尝试解决此问题.**
 
 ## 使用方法
 - 请先安装 MacroDroid, 版本至少 5.28;
@@ -66,6 +66,9 @@ pm grant com.arlosoft.macrodroid android.permission.READ_LOGS
    - 如果有则忽略本步骤
 5. 锁定手机, 然后使用 Element 呼叫该手机以测试脚本, 如果来电后被迅速挂断, 则需要授予特殊权限
 
+## 已知问题
+- 在极少数时候, 上次来电处理完毕时计时器不会被重置, 并且随下次来电累加到 60. 如果计时器达到 60 则视为超时并执行挂断.
+
 ## 注意事项
 `Element_未接来电超时自动返回_#1.macro`
 1. **脚本具有读取屏幕内容的能力, 目前只能匹配简体中文**;
@@ -77,7 +80,8 @@ pm grant com.arlosoft.macrodroid android.permission.READ_LOGS
 
 `Element_未接来电超时自动返回_#2.macro`
 1. **脚本具有读取屏幕内容的能力, 目前只能匹配简体中文**;
-2. Element for Android 的中文翻译并不规范, 未来可能会随版本更新而更换关键词导致脚本失效.
+2. 仅支持通过 "读取屏幕内容" 方式触发;
+3. Element for Android 的中文翻译并不规范, 未来可能会随版本更新而更换关键词导致脚本失效.
 
 ## 隐私
 虽然此脚本具有读取屏幕内容的能力, 但并不会将屏幕上的内容发送给作者. 脚本内容已公开.
