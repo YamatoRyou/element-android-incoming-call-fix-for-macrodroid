@@ -77,9 +77,10 @@ pm grant com.arlosoft.macrodroid android.permission.READ_LOGS
 1. **脚本具有读取屏幕内容的能力, 目前只能匹配简体中文**;
 2. 脚本使用了以下 Shell 命令用于确定当前 Activity, **需要授予特殊权限**:  
    `dumpsys activity top | grep ACTIVITY | tail -1 | cut -d " " -f 4`
-3. 在某些情况下, 脚本可能无法及时终止:
+   `dumpsys activity activities | grep ResumedActivity | tail -1 | cut -d " " -f 6`
+4. 在某些情况下, 脚本可能无法及时终止:
    当 "来电 -> 拒接" 频繁反复出现时, 脚本计时器可能并不会重新开始而是接续上一次循环
-4. Element for Android 的中文翻译并不规范, 未来可能会随版本更新而更换关键词导致脚本失效.
+5. Element for Android 的中文翻译并不规范, 未来可能会随版本更新而更换关键词导致脚本失效.
 
 `Element_未接来电超时自动返回_#2.macro`
 1. **脚本具有读取屏幕内容的能力, 目前只能匹配简体中文**;
